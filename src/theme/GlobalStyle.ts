@@ -1,7 +1,5 @@
-import { createGlobalStyle, DefaultTheme, ThemeProps } from "styled-components";
-import { IThemeMode } from "./model";
-
-interface GlobalThemeProps extends DefaultTheme, IThemeMode {}
+import { createGlobalStyle, ThemeProps } from "styled-components";
+import { GlobalThemeProps } from "./model";
 
 const GlobalStyle = createGlobalStyle`
     * {

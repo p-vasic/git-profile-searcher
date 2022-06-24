@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import Button from './components/Button';
+import Home from './pages/Home';
 import GlobalStyle from './theme/GlobalStyle';
 import { useThemeMode } from './theme/useThemeMode';
 
@@ -15,7 +15,7 @@ const App: FC = () => {
     }}>
       <GlobalStyle />
       <Routes>
-        <Route path="/" element={<Button />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </ThemeProvider>
   );
