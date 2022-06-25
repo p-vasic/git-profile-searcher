@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "../util/axios";
+import { GitError, Repo } from "./model";
 
 export default function useUserRepos(username: string | undefined) {
-    const [repoData, setRepoData] = useState<Array<any>>([]);
+    const [repoData, setRepoData] = useState<Array<Repo>>([]);
     const [loading, setLoading] = useState<boolean>(false);
-    const [error, setError] = useState({});
+    const [error, setError] = useState<GitError>({});
 
     useEffect(() => {
         const getUserRepos = async () => {
@@ -49,5 +50,5 @@ export default function useUserRepos(username: string | undefined) {
         getUserRepos();
     }, [username]);
 
-    return [repoData, loading, error];
+    return {repoData, loading, error};
 };

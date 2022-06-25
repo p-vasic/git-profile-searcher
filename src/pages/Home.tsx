@@ -1,10 +1,7 @@
-import { FC, useContext } from "react";
-import styled, { ThemeContext } from "styled-components";
+import { FC } from "react";
+import styled from "styled-components";
 import SearchForm from "../components/Form";
-import Header from "../components/Header";
-import Logo from "../components/Logo";
-import Toggle from "../components/Toogle";
-import { GlobalThemeProps } from "../theme/model";
+import PageHeader from "../container/PageHeader";
 
 const Container = styled.div`
     display: flex;
@@ -29,14 +26,9 @@ const Container = styled.div`
 `;
 
 const Home: FC = () => {
-    const { id, toggleTheme } = useContext<GlobalThemeProps>(ThemeContext);
-
     return (
         <>
-            <Header>
-                <Logo size={35} />
-                <Toggle isDarkMode={id === 'dark'} onToggle={toggleTheme} />
-            </Header>
+           <PageHeader />
             <Container>
                 <SearchForm />
             </Container>
