@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "../util/axios";
+import { GitError, User } from "./model";
 
 export default function useUserData(username: string | undefined) {
-    const [userData, setUserData] = useState<Record<string, any>>({});
+    const [userData, setUserData] = useState<User>();
     const [loading, setLoading] = useState<boolean>(false);
-    const [error, setError] = useState({});
+    const [error, setError] = useState<GitError>({});
 
     useEffect(() => {
         if (!username) return;
@@ -18,7 +19,6 @@ export default function useUserData(username: string | undefined) {
                 setUserData(response.data);
                 setLoading(false);
             } catch (error: any) {
-                console.log("Error", error);
                 if (error.response) {
                     if (error.response.status === 404) {
                         setError({ active: true, type: 404 });
@@ -35,5 +35,5 @@ export default function useUserData(username: string | undefined) {
         getUserData();
     }, [username]);
 
-    return [userData, loading, error];
+    return {userData, loading, error};
 };
