@@ -8,6 +8,7 @@ import {
 import Button from "../components/Button";
 import { User } from "../hooks/model";
 import { GlobalThemeProps } from "../theme/model";
+import { FaUser, FaUsers } from "react-icons/fa";
 
 const ProfileSection = styled.section`
     padding: 2rem 6rem;
@@ -95,7 +96,7 @@ const UserInfoDiv = styled.div<{ bgImage: string }>`
 const DetailList = styled.ul`
     margin-top: 3rem;
     border-radius: 5px;
-    background-color: ${p => p.theme.cardColor};
+    background-color: ${(props: ThemeProps<GlobalThemeProps>) => props.theme.cardColor};
     padding: 2rem 4rem;
     box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
 
@@ -154,11 +155,12 @@ const Profile: FC<IProfile> = ({ userData }) => {
         login,
         public_repos,
         created_at,
+        followers,
+        following
     } = userData;
 
     const date = new Date(created_at);
     const joinedDate = date.toDateString().split(" ").slice(1).join(" ");
-    console.log(userData);
 
     return (
         <ProfileSection>
@@ -179,6 +181,8 @@ const Profile: FC<IProfile> = ({ userData }) => {
                     <ul>
                         <li> <Span><GoCalendar /></Span> Joined github on {joinedDate}</li>
                         <li> <Span><GoPackage /></Span> Since have created {public_repos} projects</li>
+                        <li> <Span><FaUsers /></Span> Followers {followers}</li>
+                        <li> <Span><FaUser /></Span>Following {following}</li>
                     </ul>
                 </DetailList>
             </UserContainer>

@@ -1,7 +1,8 @@
 import { FC } from "react";
 import { FaGithub } from 'react-icons/fa';
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { ThemeProps } from "styled-components";
+import { GlobalThemeProps } from "../theme/model";
 
 interface ILogo {
     size?: string | number
@@ -14,7 +15,7 @@ const Span = styled.span`
 `;
 
 const StyledLink = styled(Link)`
-    color: white;
+    color: ${(props: ThemeProps<GlobalThemeProps>) => props.theme.id === 'light' ? '#555' : '#fff'};
 `
 
 const Logo: FC<ILogo> = ({ size=DEFAULT_SIZE }) => {

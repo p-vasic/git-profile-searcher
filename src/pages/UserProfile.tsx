@@ -4,6 +4,7 @@ import Error from "../components/Error";
 import Loader from "../components/Loader";
 import PageHeader from "../container/PageHeader";
 import Profile from "../container/Profile";
+import RepoList from "../container/RepoList";
 import { useUserData, useUserRepos } from "../hooks";
 
 const UserProfile: FC = () => {
@@ -34,6 +35,7 @@ const UserProfile: FC = () => {
                     ) : (
                         <>
                             {userData && <Profile userData={userData} />}
+                            {repoData && <RepoList repos={repoData} />}
                         </>
                     )
                 }
