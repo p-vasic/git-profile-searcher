@@ -5,7 +5,9 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl: 'http://localhost:3000/'
+    baseUrl: 'http://localhost:3000/',
+    viewportHeight: 667,
+    viewportWidth: 375
   },
 
   component: {
@@ -13,5 +15,7 @@ export default defineConfig({
       framework: "create-react-app",
       bundler: "webpack",
     },
+    viewportHeight: 667,
+    viewportWidth: 375
   },
 });
