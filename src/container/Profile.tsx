@@ -163,9 +163,9 @@ const Profile: FC<IProfile> = ({ userData }) => {
     const joinedDate = date.toDateString().split(" ").slice(1).join(" ");
 
     return (
-        <ProfileSection>
+        <ProfileSection data-cy='profile'>
             <UserContainer>
-                <UserInfoDiv bgImage={avatar_url}>
+                <UserInfoDiv data-cy='user-image' bgImage={avatar_url}>
                     <IconSpan>
                         <a
                             href={html_url}
