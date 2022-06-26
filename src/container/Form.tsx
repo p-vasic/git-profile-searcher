@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, FormEvent, useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled, { ThemeProps } from "styled-components";
-import Button from "./Button";
+import Button from "../components/Button";
 import { FaSearch } from "react-icons/fa";
 import { GlobalThemeProps } from "../theme/model";
 
@@ -80,14 +80,15 @@ const SearchForm: FC = () => {
     }, [])
 
     return (
-        <Form onSubmit={(event: FormEvent) => onFormSubmit(event, user)}>
+        <Form data-cy="search-form" onSubmit={(event: FormEvent) => onFormSubmit(event, user)}>
             <Input
+                data-cy="user-search-input"
                 value={user}
                 onChange={handleChange}
                 type='text'
                 placeholder='Enter Github Username'
             />
-            <Button>
+            <Button data-cy="search-button">
                 <FaSearch />
             </Button>
         </Form>

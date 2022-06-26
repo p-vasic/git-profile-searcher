@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
 import styled, { ThemeProps } from 'styled-components';
 import { Repo } from "../hooks/model";
 import { GlobalThemeProps } from "../theme/model";

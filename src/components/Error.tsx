@@ -2,6 +2,7 @@ import { FC } from "react";
 import styled, { ThemeProps } from "styled-components";
 import { GoAlert } from "react-icons/go";
 import { GlobalThemeProps } from "../theme/model";
+import { ERROR_404_MESSAGE, ERROR_NOT_404_MESSAGE } from "../constants";
 
 const ErrorContainer = styled.div`
     height: calc(100vh - 130px);
@@ -25,14 +26,14 @@ const ErrorDiv = styled.div`
 
 const Error: FC<{ error: boolean | string | Record<string, any> }> = ({ error }) => {
     return (
-        <ErrorContainer>
+        <ErrorContainer data-cy="error-container">
             <ErrorDiv>
                 <span>
                     <GoAlert />
                 </span>
                 {typeof error === 'object' && error.type === 404
-                    ? "No user found! Please try again :)"
-                    : "Oops! Some error occured. Please try again :)"}
+                    ? ERROR_404_MESSAGE
+                    : ERROR_NOT_404_MESSAGE}
             </ErrorDiv>
         </ErrorContainer>
     );
