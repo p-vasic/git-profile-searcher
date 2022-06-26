@@ -9,10 +9,10 @@ const PageHeader: FC = () => {
     const { id, toggleTheme } = useContext<GlobalThemeProps>(ThemeContext);
 
     return (
-        <Header>
+        <Header data-cy="page-header">
             <Logo size={35} />
             <Toggle isDarkMode={id === 'dark'} onToggle={toggleTheme} />
-        </Header>        
+        </Header>
     )
 }
 
