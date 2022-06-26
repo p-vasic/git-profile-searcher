@@ -31,7 +31,7 @@ const UserProfile: FC = () => {
             <main>
                 {
                     error ? (
-                        <Error error={error} />
+                        <Error error={userError || repoError} />
                     ) : (
                         <>
                             {userData && <Profile userData={userData} />}
