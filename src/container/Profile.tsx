@@ -42,6 +42,7 @@ const UserInfoDiv = styled.div<{ bgImage: string }>`
     height: 280px;
     background-color: ${(props: ThemeProps<GlobalThemeProps>) => props.theme.cardColor};
     background-image: ${(props) => `url('${props.bgImage}')`};
+    background-size: contain;
     padding: 4rem;
     border-radius: 5px;
     box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.2);
