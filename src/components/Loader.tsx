@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { BiLoaderCircle } from 'react-icons/bi'
 import { FC } from "react";
+import { DEFAULT_ICON_SIZE } from "../constants";
 
 const rotate = keyframes`
     from {
@@ -23,16 +24,14 @@ const RotatedLoader = styled(BiLoaderCircle)`
     animation: ${rotate} 2s linear infinite;
 `;
 
-const DEFAULT_SIZE = 30;
-
 interface ILoader {
     size?: number
 }
 
-const Loader: FC<ILoader> = ({ size=DEFAULT_SIZE }) => {
+const Loader: FC<ILoader> = ({ size=DEFAULT_ICON_SIZE }) => {
     return (
         <LoaderContainer>
-            <RotatedLoader size={size} />
+            <RotatedLoader data-cy="loader" size={size} />
         </LoaderContainer>
     )
 }

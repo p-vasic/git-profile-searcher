@@ -40,7 +40,7 @@ interface IToggle {
 const Toggle: FC<IToggle> = ({ isDarkMode, onToggle }) => {
     return (
         <ToggleSpan>
-            <Button onClick={onToggle}>{isDarkMode ? <FaMoon /> : <FaSun />}</Button>
+            <Button data-cy="toggle-button" onClick={onToggle}>{isDarkMode ? <FaMoon /> : <FaSun />}</Button>
         </ToggleSpan>
     )
 }

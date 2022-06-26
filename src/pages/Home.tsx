@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styled from "styled-components";
-import SearchForm from "../components/Form";
+import SearchForm from "../container/Form";
 import PageHeader from "../container/PageHeader";
 
 const Container = styled.div`

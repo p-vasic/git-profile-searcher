@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
 import styled, { ThemeProps } from 'styled-components';
+import { EMPTY_REPOSITORY } from "../constants";
 import { Repo } from "../hooks/model";
 import { GlobalThemeProps } from "../theme/model";
 
@@ -63,24 +63,26 @@ const StyledA = styled.a`
 const RepoList: FC<IRepoList> = ({ repos }) => {
     if (repos.length === 0) {
         return (
-            <RepoContainerDiv>
-                <h4>There is no public repository.</h4>
+            <RepoContainerDiv data-cy="repo-list">
+                <h4>{EMPTY_REPOSITORY}</h4>
             </RepoContainerDiv>
         )
     }
 
     return (
-        <RepoContainerDiv>
+        <RepoContainerDiv data-cy="repo-list">
             <h3>{repos.length} Repositories</h3>
             <StyledList>
                 {
-                    repos.map((repo: Repo, index: number) => (
-                        <StyledLi key={repo.id}>
-                            <Span>{index + 1}.</Span>
+                    repos.map((repo: Repo) => (
+                        <StyledLi key={repo.id} data-cy="repo-item">
                             <Span>
                                 <StyledA href={repo.html_url} target='_blank' rel='noopener noreferrer'>
                                     {repo.name}
                                 </StyledA>
+                            </Span>
+                            <Span>
+                                {repo.description}
                             </Span>
                         </StyledLi>
                     ))
