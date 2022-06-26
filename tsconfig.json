@@ -22,6 +22,7 @@
   },
   "include": [
     "src",
+    "cypress"
   ],
   "types": [
     "cypress"
