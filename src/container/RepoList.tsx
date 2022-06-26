@@ -52,6 +52,8 @@ const Span = styled.span`
 
 const StyledLi = styled.li`
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
     padding: 1rem 0;
 `;
