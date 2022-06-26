@@ -11,8 +11,8 @@ export default function useUserData(username: string | undefined) {
         if (!username) return;
 
         const getUserData = async () => {
+            setLoading(true);
             try {
-                setLoading(true);
                 setError({ active: false, type: 200 });
 
                 const response = await axios.get(`/users/${username}`);
@@ -27,9 +27,8 @@ export default function useUserData(username: string | undefined) {
                     }
                 } else {
                     setError({ active: true, type: error });
-                    console.log(error);
-                    setLoading(false);
                 }
+                setLoading(false);
             }
         };
         getUserData();
